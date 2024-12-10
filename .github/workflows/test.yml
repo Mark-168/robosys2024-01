@@ -9,5 +9,5 @@ jobs:
     seteps:
     - uses: actions/checkout@v3
     - name: All test
-      run: bash -xv ./plus_stdin
+      run: bash -xv ./test.bash
 
