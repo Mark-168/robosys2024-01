@@ -1,0 +1,9 @@
+me: test_multiply
+on: push
+jobs:
+        test:
+        runs-on: ubuntu-latest
+        steps: 
+        - uses: actions/checkout@v3
+        - name: All test
+          run: bash -xv ./assignment1.bash
