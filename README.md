@@ -1,9 +1,22 @@
 # robosys2024-01
 
 # plusコマンド
-![test](https://github.com/Mark-168/robosys2024-01/actions/workflows/test.yml/badge.svg)
+![test](https://github.com/robosys2024-01/actions/workflows/test.yml/badge.svg)
 
 標準入力から読み込んだ数字を足します。
+
+
+## 必要なソフトウェア
+- Python
+  - テスト済みバージョン: 3.7〜3.10
+
+## テスト環境
+- Ubuntu 24.04 LTS
+
+# multiplyコマンド
+![test_multiply](https://github.com/robosys2024-01/actions/workflows/test_multiply.yml/badge.svg)
+
+標準入力から読み込んだ数字を全て掛けます。
 
 
 ## 必要なソフトウェア
