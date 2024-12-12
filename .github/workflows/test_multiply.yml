@@ -3,7 +3,7 @@ on: push
 jobs:
   test:
    runs-on: ubuntu-latest
-    steps:
+   steps:
      - uses: actions/checkout@v3
      - name: All test
        run: bash -xv ./assignment1.bash
