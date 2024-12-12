@@ -1,4 +1,4 @@
-me: test_multiply
+name: test_multiply
 on: push
 jobs:
   test:
