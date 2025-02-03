@@ -9,9 +9,10 @@ ng () {
 
 res=0
 
-out=$(seq 5 | ./PSD)
 expected_output="mean: 3population_variance: 2population_standard_deviation: 1"
-[ "$(echo "$out" | tr -d '\n')" != "$expected_output" ] || ng "$LINENO"
+out=$(seq 5 | ./PSD)
+out=$(echo "$out" | tr -d '\n')
+["$out" = "$expected_output" ] || ng "$LINENO"
 
 
 out=$(echo あ | ./PSD)
@@ -26,7 +27,6 @@ out=$(echo  | ./PSD)
 [ "${out}" = "" ] || ng "$LINENO"
 
 
-[ "$res" = 0 ] || echo OK
-
+[ "$res" = 0 ] && echo OK
 exit $res
 
