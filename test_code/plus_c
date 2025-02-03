@@ -1,8 +1,0 @@
-#!/usr/bin/python3
-# SPDX-FileCopyrightText: 2024 Issei Takei <s20c1709gl@s.chibakoudai.jp>
-# SPDX-License-Identifier: BSD-3-Clause
-
-import sys
-
-nums = [ float(e) for e in sys.argv[1:] ]
-print(sum(nums))

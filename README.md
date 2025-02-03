@@ -1,23 +1,21 @@
 # robosys2024-01
 
-# plusコマンド
+# PSDコマンド
 ![test](https://github.com/Mark-168/robosys2024-01/actions/workflows/test.yml/badge.svg)
 
-標準入力から読み込んだ数字を足します。
+入力した数値から  
+平均値(mean)  
+母分散(population_variance)  
+母標準偏差(population_standard_deviation)　　
+の３つを小数点以下を切り捨てて出力するコマンド
 
-
-## 必要なソフトウェア
-- Python
-  - テスト済みバージョン: 3.7〜3.10
-
-## テスト環境
-- Ubuntu 24.04 LTS
-
-# multiplyコマンド
-![test_multiply](https://github.com/Mark-168/robosys2024-01/actions/workflows/test_multiply.yml/badge.svg)
-
-標準入力から読み込んだ数字を全て掛けます。
-
+#使用例
+```
+echo -e "1\n10.5\n100.5" | ./PSD
+mean: 37
+population_variance: 2010
+population_standard_deviation: 44
+```
 
 ## 必要なソフトウェア
 - Python
@@ -28,8 +26,5 @@
 
 # license
 - このソフトウェアパッケージは,3条項BSDライセンスの下,再頒布および使用が許可されます.
-- このパッケージのコードは,下記のスライド(CC-BY-SA 4.0 by Ryuichi Ueda)のものを,本人の許可を得て自身の著作としたものです.
-- [ryuichiueda/my_slides robosys_2022](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2022)
-
 # Copyright
 - © 2024 Issei Takei

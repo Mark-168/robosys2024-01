@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2024 Issei Takei <s20c1709gl@s.chibakoudai.jp>
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+import math
+
+def tonum(s):
+    try:
+        return int(s)
+    except:
+        return float(s)
+
+
+x = 0
+y = 0
+total = 0
+quy = 0
+mean = 0
+psd = 0
+pvar = 0
+
+input_lines = sys.stdin.readlines()
+quy = len(input_lines)
+
+for line in input_lines:
+    line = line.rstrip()
+    total += tonum(line)
+
+mean = total / quy
+
+for line in input_lines:
+    line = line.rstrip()
+    y = tonum(line)
+    x += (y - mean) ** 2
+
+pvar = (1 / quy ) * x
+psd = math.sqrt(pvar)
+
+mean = math.floor(mean)
+pvar = math.floor(pvar)
+psd = math.floor(psd)
+
+print('mean:', mean)
+print('population_variance:', pvar)
+print('population_standard_deviation:', psd)
