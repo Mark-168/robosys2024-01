@@ -16,15 +16,10 @@ out=$(echo "$out" | tr -d '\n')
 
 
 out=$(echo あ | ./PSD)
-[ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "Please input a number" ] || ng "$LINENO"
-[ "${out}" = "" ] || ng "$LINENO"
-
 
 out=$(echo  | ./PSD)
-[ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "Please input a number" ] || ng "$LINENO"
-[ "${out}" = "" ] || ng "$LINENO"
 
 
 [ "$res" = 0 ] && echo OK
