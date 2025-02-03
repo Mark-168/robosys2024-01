@@ -11,22 +11,36 @@ def tonum(s):
     except:
         return float(s)
 
+def safe_convert(a):
+        try:
+            return int(a)
+        except ValueError:
+            try:
+                return float(a)
+            except:
+                return "error"
+        except:
+            return "error"
 
 x = 0
 y = 0
-total = 0
-quy = 0
-mean = 0
 psd = 0
 pvar = 0
+total = 0
+mean = 0
 
 input_lines = sys.stdin.readlines()
-quy = len(input_lines)
 
 for line in input_lines:
-    line = line.rstrip()
-    total += tonum(line)
+    test = safe_convert(line)
+    if test == "error":
+        print("Please input a number")
+        sys.exit(0)
+    else:
+        line = line.rstrip()
+        total += tonum(line)
 
+quy = len(input_lines)
 mean = total / quy
 
 for line in input_lines:
