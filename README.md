@@ -13,7 +13,7 @@ _母標準偏差_(population_standard_deviation)
 
 の３つを小数点以下を切り捨てて出力するコマンド
 
-# 使用例
+## 使用例
 ```
 $echo -e "1\n10.5\n100.5" | ./PSD
 mean: 37
