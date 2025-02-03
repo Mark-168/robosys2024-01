@@ -17,15 +17,33 @@ if [ "$(echo "$out" | tr -d '\n')" != "$expected_output" ]; then
 	ng "$LINENO"
 fi
 
+
 out=$(echo あ | ./PSD)
-[ "$?" = 1 ]       ng "$LINENO"
-[ "${out}" = "Please input a number" ]  ng "$LINENO"
-[ "${out}" = "" ]  ng "$LINENO"
+if [ "$?" = 1 ]; then
+ 	ng "$LINENO"
+fi
+
+if [ "${out}" = "Please input a number" ]  
+	ng "$LINENO"
+fi
+
+if [ "${out}" = "" ]  
+	ng "$LINENO"
+fi
+
 
 out=$(echo  | ./PSD)
-[ "$?" = 1 ]       ng "$LINENO"
-[ "${out}" = "Please input a number" ]  ng "$LINENO"
-[ "${out}" = "" ]  ng "$LINENO"
+if [ "$?" = 1 ]; then
+	        ng "$LINENO"
+fi
+
+if [ "${out}" = "Please input a number" ]
+	        ng "$LINENO"
+fi
+
+if [ "${out}" = "" ]
+	        ng "$LINENO"
+fi
 
 [ "$res" = 0 ] && echo OK
 
