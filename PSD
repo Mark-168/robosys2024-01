@@ -5,11 +5,13 @@
 import sys
 import math
 
+
 def tonum(s):
     try:
         return int(s)
     except:
         return float(s)
+
 
 def safe_convert(a):
         try:
@@ -22,6 +24,7 @@ def safe_convert(a):
         except:
             return "error"
 
+
 x = 0
 y = 0
 psd = 0
@@ -29,7 +32,9 @@ pvar = 0
 total = 0
 mean = 0
 
+
 input_lines = sys.stdin.readlines()
+
 
 for line in input_lines:
     test = safe_convert(line)
@@ -40,20 +45,25 @@ for line in input_lines:
         line = line.rstrip()
         total += tonum(line)
 
+
 quy = len(input_lines)
 mean = total / quy
+
 
 for line in input_lines:
     line = line.rstrip()
     y = tonum(line)
     x += (y - mean) ** 2
 
+
 pvar = (1 / quy ) * x
 psd = math.sqrt(pvar)
+
 
 mean = math.floor(mean)
 pvar = math.floor(pvar)
 psd = math.floor(psd)
+
 
 print('mean:', mean)
 print('population_variance:', pvar)
