@@ -3,51 +3,30 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 ng () {
-	echo ${1}行目が違う
+	echo ${1}行目が違います
 	res=1
 }
 
 res=0
 
 out=$(seq 5 | ./PSD)
-expected_output="mean: 3
-population_variance: 2
-population_standard_deviation: 1"
-if [ "$(echo "$out" | tr -d '\n')" != "$expected_output" ]; then
-	ng "$LINENO"
-fi
+expected_output="mean: 3population_variance: 2population_standard_deviation: 1"
+[ "$(echo "$out" | tr -d '\n')" != "$expected_output" ] || ng "$LINENO"
 
 
 out=$(echo あ | ./PSD)
-if [ "$?" = 1 ]; then
- 	ng "$LINENO"
-fi
-
-if [ "${out}" = "Please input a number" ]; then
-	ng "$LINENO"
-fi
-
-if [ "${out}" = "" ]; then
-	ng "$LINENO"
-fi
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "Please input a number" ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
 
 
 out=$(echo  | ./PSD)
-if [ "$?" = 1 ]; then
-	        ng "$LINENO"
-fi
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "Please input a number" ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
 
-if [ "${out}" = "Please input a number" ];then
-	        ng "$LINENO"
-fi
 
-if [ "${out}" = "" ]then
-	        ng "$LINENO"
-fi
-
-if [ "$res" = 0 ]; then 
-	echo OK
-fi
+[ "$res" = 0 ] || echo OK
 
 exit $res
 
