@@ -35,7 +35,7 @@ for line in input_lines:
     test = safe_convert(line)
     if test == "error":
         print("Please input a number")
-        sys.exit(0)
+        sys.exit(1)
     else:
         line = line.rstrip()
         total += tonum(line)

@@ -10,18 +10,22 @@ ng () {
 res=0
 
 expected_output="mean: 3population_variance: 2population_standard_deviation: 1"
+
 out=$(seq 5 | ./PSD)
 out=$(echo "$out" | tr -d '\n')
-["$out" = "$expected_output" ] || ng "$LINENO"
+[ "$out" = "$expected_output" ] || ng "$LINENO"
 
 
 out=$(echo あ | ./PSD)
+[ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "Please input a number" ] || ng "$LINENO"
 
 out=$(echo  | ./PSD)
+[ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "Please input a number" ] || ng "$LINENO"
 
 
 [ "$res" = 0 ] && echo OK
+
 exit $res
 
