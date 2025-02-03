@@ -6,7 +6,7 @@
 入力した数値から  
 平均値(mean)  
 母分散(population_variance)  
-母標準偏差(population_standard_deviation)　　
+母標準偏差(population_standard_deviation)   
 の３つを小数点以下を切り捨てて出力するコマンド
 
 #使用例
