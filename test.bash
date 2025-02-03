@@ -15,6 +15,7 @@ population_variance: 2
 population_standard_deviation: 1"
 if [ "$(echo "$out" | tr -d '\n')" != "$expected_output" ]; then
 	ng "$LINENO"
+fi
 
 out=$(echo あ | ./PSD)
 [ "$?" = 1 ]       ng "$LINENO"
