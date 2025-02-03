@@ -23,11 +23,11 @@ if [ "$?" = 1 ]; then
  	ng "$LINENO"
 fi
 
-if [ "${out}" = "Please input a number" ]  
+if [ "${out}" = "Please input a number" ]; then
 	ng "$LINENO"
 fi
 
-if [ "${out}" = "" ]  
+if [ "${out}" = "" ]; then
 	ng "$LINENO"
 fi
 
@@ -37,15 +37,17 @@ if [ "$?" = 1 ]; then
 	        ng "$LINENO"
 fi
 
-if [ "${out}" = "Please input a number" ]
+if [ "${out}" = "Please input a number" ];then
 	        ng "$LINENO"
 fi
 
-if [ "${out}" = "" ]
+if [ "${out}" = "" ]then
 	        ng "$LINENO"
 fi
 
-[ "$res" = 0 ] && echo OK
+if [ "$res" = 0 ]; then 
+	echo OK
+fi
 
 exit $res
 
