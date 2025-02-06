@@ -21,11 +21,11 @@ out=$(echo -e "185.05\n85.67\n56" | ./BMI)
 
 out=$(echo あ | ./BMI)
 [ "$?" = 1 ] || ng "$LINENO"
-[ "${out}" = "Please input a number" ] || ng "$LINENO"
+[ "${out}" = "Please enter a number" ] || ng "$LINENO"
 
 out=$(echo  | ./BMI)
 [ "$?" = 1 ] || ng "$LINENO"
-[ "${out}" = "Please input a number" ] || ng "$LINENO"
+[ "${out}" = "Please enter a number" ] || ng "$LINENO"
 
 
 [ "$res" = 0 ] && echo OK
