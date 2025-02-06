@@ -1,0 +1,104 @@
+#!/usr/bin/python3
+# SPDX-FileCopyrightText: 2024 Issei Takei <s20c1709gl@s.chibakoudai.jp>
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+import math
+
+
+def tonum(s):
+    try:
+        return int(s)
+    except:
+        return float(s)
+
+
+def safe_convert(a):
+        try:
+            return int(a)
+        except ValueError:
+            try:
+                return float(a)
+            except:
+                return "error"
+        except:
+            return "error"
+
+
+BMI = 0
+appropriate_weight = 0
+stature = 0
+weight = 0
+Evaluation = 'Normal weight'
+
+
+input_lines = sys.stdin.readlines()
+LEN_lined = len(input_lines)
+
+for line in input_lines:
+    test = safe_convert(line)
+    if test == "error":
+        print("Please enter a number")
+        sys.exit(1)
+    else:
+        pass
+
+if LEN_lined == 3:
+    print("Please enter only stature and weight")
+    sys.exit(1)
+else:
+    pass
+
+
+stature = input_lines[0].strip()
+stature = stature.rstrip()
+stature = tonum(stature)
+
+weight = input_lines[1].strip()
+weight = weight.rstrip()
+weight = tonum(weight)
+
+
+if stature > 3:
+    if stature > 300:
+        stature = stature / 1000
+    else :
+        stature = stature / 100
+else:
+    pass
+
+if weight > 700:
+    weight = weight /1000
+else:
+    pass
+
+
+BMI = weight / (stature**2)
+appropriate_weight = (stature**2) * 22
+
+weight = round(weight, 2)
+BMI = round(BMI, 2)
+appropriate_weight = round(appropriate_weight, 2)
+
+
+if BMI < 16:
+    Evaluation = 'Underweight'
+elif BMI < 17:
+    Evaluation = 'Thin'
+elif BMI < 18.5:
+    Evaluation = 'Slender'
+elif BMI < 25:
+    Evaluation = 'Normal weight'
+elif BMI < 30:
+    Evaluation = 'Overweight'
+elif BMI < 35:
+    Evaluation = 'Obesity (Class 1)'
+elif BMI < 40:
+    Evaluation = 'Obesity (Class 2)'
+else:
+    Evaluation = 'Obesity (Class 3)'
+
+print('BMI:', BMI)
+print('Evaluation; ', Evaluation)
+print('Your_weight:', weight, 'Kg')
+print('appropriate_weight:', appropriate_weight, 'Kg')

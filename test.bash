@@ -9,18 +9,21 @@ ng () {
 
 res=0
 
-expected_output="mean: 3population_variance: 2population_standard_deviation: 1"
+expected_output="BMI: 25.02Evaluation;  OverweightYour_weight: 85.67 Kgappropriate_weight: 75.34 Kg"
 
-out=$(seq 5 | ./PSD)
+out=$(echo -e "185.05\n85.67" | ./BMI)
 out=$(echo "$out" | tr -d '\n')
 [ "$out" = "$expected_output" ] || ng "$LINENO"
 
+out=$(echo -e "185.05\n85.67\n56" | ./BMI)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "Please enter only stature and weight" ] || ng "$LINENO"
 
-out=$(echo あ | ./PSD)
+out=$(echo あ | ./BMI)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "Please input a number" ] || ng "$LINENO"
 
-out=$(echo  | ./PSD)
+out=$(echo  | ./BMI)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "Please input a number" ] || ng "$LINENO"
 
